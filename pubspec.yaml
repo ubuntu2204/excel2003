@@ -1,7 +1,8 @@
-name: xls_reader
+name: excel2003
 description: A simple Dart library/plugin for reading legacy .xls Excel files.
 version: 1.0.0
-# repository: https://github.com/my_org/my_repo
+repository: https://github.com/ubuntu2204/excel2003
+homepage: https://github.com/ubuntu2204/excel2003
 
 environment:
   sdk: ^3.7.2

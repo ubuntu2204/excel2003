@@ -14,7 +14,7 @@
 /// ## Usage
 ///
 /// ```dart
-/// import 'package:xls_reader/xls_reader.dart';
+/// import 'package:excel2003/excel2003.dart';
 ///
 /// void main() {
 ///   final reader = XlsReader('path/to/workbook.xls');
@@ -45,7 +45,7 @@
 /// }
 /// ```
 
-library xls_reader;
+library excel2003;
 
 export 'src/xls_reader_base.dart';
 export 'src/biff/cell_parser.dart' show XlsCell, CellType;

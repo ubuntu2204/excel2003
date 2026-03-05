@@ -11,12 +11,14 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A Dart library for reading legacy Excel (.xls) workbooks (Excel 97‑2003). It provides simple APIs to open a workbook, list sheets, and read cell values.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+* Read BIFF8-formatted `.xls` files
+* Iterate sheets, rows, and cells
+* Access cell values/types and convert sheets to maps
+* No external dependencies (pure Dart)
 
 ## Getting started
 
@@ -25,12 +27,25 @@ start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+The following example demonstrates basic usage:
 
 ```dart
-const like = 'sample';
-```
+import 'package:excel2003/excel2003.dart';
+
+void main() {
+  final reader = XlsReader('path/to/workbook.xls');
+  reader.open();
+  print('Sheets: ${reader.sheetNames}');
+  final sheet = reader.sheet(0);
+  for (int row = sheet.firstRow; row < sheet.lastRow; row++) {
+    for (int col = sheet.firstCol; col < sheet.lastCol; col++) {
+      final value = sheet.cell(row, col);
+      if (value != null) {
+        print('Cell($row,$col)=$value');
+      }
+    }
+  }
+}
 
 ## Additional information
 

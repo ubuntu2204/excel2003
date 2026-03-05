@@ -1,8 +1,7 @@
 import 'dart:io';
-import 'dart:typed_data';
 
-import 'package:xls_reader/src/ole2/ole2_reader.dart';
-import 'package:xls_reader/src/biff/biff_records.dart';
+import 'package:excel2003/src/ole2/ole2_reader.dart';
+import 'package:excel2003/src/biff/biff_records.dart';
 
 void main() {
   final file = File('test_data.xls');

@@ -1,4 +1,4 @@
-import 'package:xls_reader/xls_reader.dart';
+import 'package:excel2003/excel2003.dart';
 
 void main() {
   print('正在打开 excel.xls...\n');

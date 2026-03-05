@@ -1,7 +1,6 @@
 import 'dart:io';
-import 'dart:typed_data';
 
-import 'package:xls_reader/xls_reader.dart';
+import 'package:excel2003/excel2003.dart';
 import 'package:test/test.dart';
 
 void main() {
