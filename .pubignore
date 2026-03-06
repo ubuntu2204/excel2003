@@ -1,0 +1,23 @@
+# Files and directories to exclude from pub.dev uploads.
+# See https://dart.dev/tools/pub/publishing#what-files-are-published
+# Format follows .gitignore patterns.
+
+# Generated / build directories
+.dart_tool/
+build/
+
+# Local artifacts not needed by consumers
+excel2003.bundle
+
+# Development helpers
+tool/
+
+# Example data (if you add any)
+example/*.xls
+
+# Git and pub helper files are ignored by default, but we can be explicit
+.gitignore
+.pubignore
+
+# Lock file not published
+pubspec.lock
