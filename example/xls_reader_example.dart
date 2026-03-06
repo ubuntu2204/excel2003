@@ -1,8 +1,18 @@
-import 'package:xls_reader/xls_reader.dart';
+import 'dart:io';
+import 'package:excel2003/excel2003.dart';
 
-void main() {
+void main(List<String> args) {
+  // Determine path from command-line args or use default
+  final path = args.isNotEmpty ? args[0] : 'excel.xls';
+
+  if (!File(path).existsSync()) {
+    print('Error: XLS file not found at "${path}".');
+    print('Usage: dart run example/xls_reader_example.dart <path-to-xls>');
+    return;
+  }
+
   // Open an XLS file
-  final reader = XlsReader('test_data.xls');
+  final reader = XlsReader(path);
   reader.open();
 
   // Print workbook info

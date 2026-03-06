@@ -45,7 +45,7 @@
 /// }
 /// ```
 
-library excel2003;
+library;
 
 export 'src/xls_reader_base.dart';
 export 'src/biff/cell_parser.dart' show XlsCell, CellType;
