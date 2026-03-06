@@ -131,7 +131,6 @@ class BiffParser {
     List<int> allData = record.data.toList();
 
     while (hasMore) {
-      final savedPosition = _position;
       final nextType = _peekUint16();
 
       if (nextType == BiffRecordType.continueRec) {

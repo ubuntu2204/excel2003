@@ -8,6 +8,7 @@ build/
 
 # Local artifacts not needed by consumers
 excel2003.bundle
+excel.xls
 
 # Development helpers
 tool/

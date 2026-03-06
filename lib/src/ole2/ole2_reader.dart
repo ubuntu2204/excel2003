@@ -7,7 +7,7 @@ import 'dart:typed_data';
 /// Microsoft Office applications including Excel 97-2003 (.xls).
 class Ole2Reader {
   static const int _headerSize = 512;
-  static const int _magicNumber = 0xE11AB1A1E011CFD0; // Little-endian magic
+  // magic bytes for OLE2 headers
   static const List<int> _magicBytes = [
     0xD0,
     0xCF,
@@ -22,10 +22,8 @@ class Ole2Reader {
   late Uint8List _data;
   late int _sectorSize;
   late int _miniSectorSize;
-  late int _fatSectorCount;
   late int _firstDirectorySector;
   late int _firstMiniFatSector;
-  late int _miniFatSectorCount;
   late int _firstDifatSector;
   late int _difatSectorCount;
   late int _miniStreamCutoffSize;
@@ -70,8 +68,9 @@ class Ole2Reader {
     }
 
     // Read header fields
-    final minorVersion = _readUint16(24);
-    final majorVersion = _readUint16(26);
+    // ignore version fields, just consume them
+    _readUint16(24); // minor version
+    _readUint16(26); // major version
     final byteOrder = _readUint16(28);
 
     if (byteOrder != 0xFFFE) {
@@ -84,11 +83,9 @@ class Ole2Reader {
     _sectorSize = 1 << sectorSizeExponent;
     _miniSectorSize = 1 << miniSectorSizeExponent;
 
-    _fatSectorCount = _readUint32(44);
     _firstDirectorySector = _readUint32(48);
     _miniStreamCutoffSize = _readUint32(56);
     _firstMiniFatSector = _readUint32(60);
-    _miniFatSectorCount = _readUint32(64);
     _firstDifatSector = _readUint32(68);
     _difatSectorCount = _readUint32(72);
   }
